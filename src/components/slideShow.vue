@@ -62,7 +62,6 @@
 	    }
 		},
 		created(){
-			console.log(this.slides)
 
 		},
 		mounted(){
