@@ -5,10 +5,12 @@
 				<img src="../assets/logo.png">
 				<div class="head-nav">
 					<ul class="nav-list">
-						<li @click='logClick'>登录</li>
-						<li class="nav-pile">|</li>
-						<li @click='regClick'>注册</li>
-						<li class="nav-pile">|</li>
+            <li>{{username}}</li>
+            <li v-if="username" class="nav-pile">|</li>
+            <li v-if="!username" @click='logClick'>登录</li>
+						<li v-if="!username" class="nav-pile">|</li>
+						<li v-if="!username" @click='regClick'>注册</li>
+						<li v-if="!username" class="nav-pile">|</li>
 						<li @click='aboutClick'>关于</li>
 					</ul>
 				</div>
@@ -29,7 +31,7 @@
       <reg-form></reg-form>
     </my-dialog>
     <my-dialog :is-show="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
-      <log-form></log-form>
+      <log-form @has-log="onSuccessLog"></log-form>
     </my-dialog>
 	</div>
 </template>
@@ -48,7 +50,8 @@ import regForm from './regForm'
 			return{
         isShowLogDialog:false,
         isShowRegDialog:false,
-        isShowAboutDialog:false
+        isShowAboutDialog:false,
+        username:''
 			}
 		},
     methods:{
@@ -63,6 +66,11 @@ import regForm from './regForm'
       },
       closeDialog(attr){
         this[attr] = false
+      },
+      onSuccessLog(data){
+        this.username = data.username
+        console.log(data.username)
+         this.closeDialog ('isShowLogDialog')
       }
     }
 	}
