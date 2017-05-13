@@ -17,6 +17,7 @@ export default new Router({
 	},
 	{
 		path:'/detail',
+		redirect:'/detail/analysis',
 		component:DetailPage,
 		children:[
 			{

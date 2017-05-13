@@ -10,6 +10,7 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
+                <v-counter ></v-counter>
               </div>
           </div>
           <div class="sales-board-line">
@@ -17,7 +18,7 @@
                   产品类型：
               </div>
               <div class="sales-board-line-right">
-                  
+                  <v-selection :selections="productionTypes" ></v-selection>
               </div>
           </div>
           <div class="sales-board-line">
@@ -33,7 +34,7 @@
                   产品版本：
               </div>
               <div class="sales-board-line-right">
-                 
+                <v-multiply-chooser></v-multiply-chooser>  
               </div>
           </div>
           <div class="sales-board-line">
@@ -78,8 +79,96 @@
   </div>	
 </template>
 <script>
-	
+  import VSelection from "../../components/selection"
+  import VCounter from "../../components/counter"
+  import VChooser from "../../components/chooser"
+  import VMultiplyChooser from "../../components/multiplyChooser"
+
+  export default{
+    data(){
+      return{
+        buyNum: 0,
+        buyType: {},
+        versions: [],
+        period: {},
+        price: 0,
+        versionList: [
+          {
+            label: '客户版',
+            value: 0
+          },
+          {
+            label: '代理商版',
+            value: 1
+          },
+          {
+            label: '专家版',
+            value: 2
+          }
+        ],
+        periodList: [
+          {
+            label: '半年',
+            value: 0
+          },
+          {
+            label: '一年',
+            value: 1
+          },
+          {
+            label: '三年',
+            value: 2
+          }
+        ],
+        buyTypes: [
+          {
+            label: '入门版',
+            value: 0
+          },
+          {
+            label: '中级版',
+            value: 1
+          },
+          {
+            label: '高级版',
+            value: 2
+          }
+        ],
+        isShowPayDialog: false,
+        bankId: null,
+        orderId: null,
+        isShowCheckOrder: false,
+        isShowErrDialog: false
+      }
+    },
+    components:{
+      VSelection,
+      VCounter,
+      VMultiplyChooser,
+    }
+  }
 </script>
 <style scoped>
-	
+.buy-dialog-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.buy-dialog-btn {
+  margin-top: 20px;
+}
+.buy-dialog-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.buy-dialog-table td,
+.buy-dialog-table th{
+  border: 1px solid #e3e3e3;
+  text-align: center;
+  padding: 5px 0;
+}
+.buy-dialog-table th {
+  background: #4fc08d;
+  color: #fff;
+  border: 1px solid #4fc08d;
+}
 </style>

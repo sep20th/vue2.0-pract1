@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="index-wrap">
     <div class="index-left">
       <div class="index-left-block">
@@ -74,7 +74,7 @@ import slideShow from '../components/slideShow'
             title: '开放产品',
             description: '开放产品是一款开放产品',
             id: 'car',
-            toKey: 'analysis',
+            toKey: '/detail/analysis',
             saleout: false
           },
           {
@@ -106,20 +106,20 @@ import slideShow from '../components/slideShow'
             list:[
               {
                 name: '数据统计',
-                url: 'http://starcraft.com'
+                url: '#/detail/count'
               },
               {
                 name: '数据预测',
-                url: 'http://warcraft.com'
+                url: '#/detail/forecast'
               },
               {
                 name: '流量分析',
-                url: 'http://overwatch.com',
+                url: '#/detail/analysis',
                 hot: true
               },
               {
                 name: '广告发布',
-                url: 'http://hearstone.com'
+                url: '#/detail/publish'
               }
             ]
           },
