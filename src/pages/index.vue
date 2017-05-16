@@ -2,7 +2,7 @@
   <div class="index-wrap">
     <div class="index-left">
       <div class="index-left-block">
-        <h2>全部产品</h2>
+        <h2>全部产品产品</h2>
         <template v-for= "product in prodctList">
           <h3>{{product.title}}</h3>
           <ul>
